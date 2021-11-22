@@ -1,0 +1,47 @@
+<html>
+<head>
+	<script>
+		var canvas;
+		var ctx;
+
+		function init() {
+			canvas = document.getElementById('canvas');
+			ctx = canvas.getContext('2d');
+			document.addEventListener("mousedown", putRect);
+			document.addEventListener("keydown", putRect);
+			ctx.fillStyle = 'red';
+			ctx.strokeRect(0, 0, 640, 480);
+		}
+
+		function putRect(event){
+			var x = event.offsetX;
+			var y = event.offsetY;
+			ctx.fillRect(x,y,20,20);
+			 if (event.keyCode == 49) { selectColor('red') }
+			 if (event.keyCode == 50) { selectColor('blue') }
+			 if (event.keyCode == 51) { selectColor('green') }
+		}
+		
+		function selectColor(color) {
+			if (color == "red") {
+				ctx.fillStyle = "red";
+			}
+			
+			if (color == "blue") {
+				ctx.fillStyle = "blue";
+			}
+			if (color == "green") {
+				ctx.fillStyle = "green";
+			}
+			
+
+		}
+		
+	</script>
+</head>
+
+<body onload="init();">
+	<canvas id="canvas" width="640" height="480"></canvas>
+</body>
+
+</html>
